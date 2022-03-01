@@ -25,7 +25,7 @@ const TodoSearch = () => {
     <>
       {
         !loading
-          ? <ui.Input type="text" placeholder='Cebolla' value={searchValue} onChange={handlerSearchChange} />
+          ? <ui.Input type="text" placeholder='Buscar una tarea...' value={searchValue} onChange={handlerSearchChange} />
           : <Skeleton width='100%' height={40} />
       }
     </>

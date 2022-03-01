@@ -6,8 +6,8 @@ const ui = {
   Button: styled.button`
     border-radius: 50%;
     padding: 5px;
-    margin: 0 auto;
     margin-top: 20px;
+    margin-left: calc(100% - 50px);
     width: 50px;
     height: 50px;
     display: flex;
