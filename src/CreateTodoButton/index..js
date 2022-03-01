@@ -6,15 +6,14 @@ const ui = {
   Button: styled.button`
     border-radius: 50%;
     padding: 5px;
+    margin: 0 auto;
+    margin-top: 20px;
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 36px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
     border: none;
     background-color: #69DADB;
     cursor: pointer;

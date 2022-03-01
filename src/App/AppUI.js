@@ -20,7 +20,7 @@ const ui = {
     `,
   Container: styled.div`
     position: relative;
-    height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
     padding: 20px;
     margin: 0 auto;
   `
