@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
-import { TodoContext } from '../TodoContext'
 
 const ui = {
   Input: styled.input`
@@ -16,8 +15,7 @@ const ui = {
 }
 
 
-const TodoSearch = () => {
-  const { searchValue, setSearchValue, loading } = useContext(TodoContext)
+const TodoSearch = ({ searchValue, setSearchValue, loading }) => {
   const handlerSearchChange = (event) => {
     setSearchValue(event.target.value)
   }

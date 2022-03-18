@@ -20,10 +20,21 @@ const ui = {
     :last-child {
       margin-bottom: 0;
     }
+
+    `,
+  Center: styled.div`
+    width: 60%;
+    p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #630606;
+    }
   `,
   Span: styled.span`
-    width: 60%;
     text-decoration: ${({ completed }) => completed ? 'line-through' : 'none' };
+    display: block;
+    text-transform: capitalize;
   `,
   Button: styled.button`
     background-color: transparent;
@@ -40,14 +51,17 @@ const ui = {
   `
 }
 
-function TodoItem({ onDelete, onComplete, completed, text, loading }) {
+function TodoItem({ onDelete, onComplete, completed, text, date}) {
   return (
     <>
       <ui.Item completed={completed}>
         <ui.Button onClick={onComplete}> 
-          <FaCheck color={completed ? '#6EBF8B' : '#000000'} /> 
+          <FaCheck color={completed ? '#6EBF8B' : '#121212'} /> 
         </ui.Button>
-        <ui.Span completed={completed} >{text}</ui.Span>
+        <ui.Center>
+          <ui.Span completed={completed} >{text} </ui.Span>
+          <p>{date}</p>
+        </ui.Center>
         <ui.Button onClick={onDelete}>
           <FaTrash />
         </ui.Button>

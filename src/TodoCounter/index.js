@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { TodoContext } from '../TodoContext'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const ui = {
-  Header: styled.header`
+  Header: styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,8 +41,7 @@ const ui = {
   `
 }
 
-function TodoCounter() {
-  const { totalTodos, completeTodos, loading } = useContext(TodoContext)
+function TodoCounter({ totalTodos, completeTodos, loading }) {
   return (
     <>
       <ui.Header>
@@ -57,7 +55,7 @@ function TodoCounter() {
         <ui.Information>
           {
             !loading
-              ? <><ui.Title>Hola Kevin!!!</ui.Title>
+              ? <><ui.Title>Hola User!!!</ui.Title>
                   <ui.Span>Has completado {completeTodos} de {totalTodos} TODOs</ui.Span></>
               : <Skeleton count={2} width='80%' height='80%' />
           }

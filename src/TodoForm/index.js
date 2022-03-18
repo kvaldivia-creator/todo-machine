@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { TodoContext } from '../TodoContext'
 
 const ui = {
   Form: styled.form`
@@ -74,15 +73,26 @@ const ui = {
   `
 }
 
-function TodoForm() {
+function TodoForm({ addTodo, setOpenModal }) {
   const [newTextValue, setNewTextValue] = useState('')
+  const [date] = useState(new Date())
   const [hint, setHint] = useState('')
-  const { addTodo, setOpenModal } = useContext(TodoContext)
+
+
+  function addZero(i) {
+    if (i < 10) {
+      i = `0${i}`
+    }
+    return i
+  }
 
   const onSubmit = (event) => {
     event.preventDefault()
     if (newTextValue !== '') {
-      addTodo(newTextValue)
+      const fecha = `${date.getDate()}/${addZero(date.getMonth() + 1)}/${date.getFullYear()}`
+      const hour = `${date.getHours()}:${addZero(date.getMinutes())}:${addZero(date.getSeconds())}`
+      const newDate = `${fecha} - ${hour}`
+      addTodo(newTextValue, newDate)
       setOpenModal(false)
     } else {
       setHint('Por favor escriba una tarea.')
